@@ -1,56 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>WebAR Maker App</title>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPIS360 WebAR Marker App</title>
+
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
+<body>
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="logarithmicDepthBuffer: true;"
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  >
+    <a-marker
+      preset="hiro"
+      smooth="true"
+      smoothCount="12"
+      smoothTolerance="0.01"
+      smoothThreshold="5"
+    >
+      
+      <a-cylinder
+        position="0 0.08 0"
+        radius="1.2"
+        height="0.12"
+        color="#1f2937"
+      ></a-cylinder>
 
-<body style="margin: 0; overflow: hidden;">
-  <a-scene embedded arjs>
+    
+      <a-box
+        position="0 0.45 0"
+        depth="0.55"
+        height="0.55"
+        width="0.55"
+        color="#f97316"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
+      ></a-box>
 
-    <!-- Hiro Marker -->
-    <a-marker preset="hiro">
+      <a-sphere
+        position="0.9 0.55 0.2"
+        radius="0.28"
+        color="#06b6d4"
+        animation="property: position; dir: alternate; dur: 1800; loop: true; to: 0.9 0.85 0.2"
+      ></a-sphere>
 
-      <!-- Box -->
-      <a-box 
-        position="0 0.5 0" 
-        color="red" 
-        scale="1 1 1"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
-      </a-box>
+  
+      <a-cone
+        position="-0.9 0.5 -0.1"
+        radius-bottom="0.25"
+        radius-top="0.05"
+        height="0.75"
+        color="#22c55e"
+        animation="property: rotation; to: 360 0 360; loop: true; dur: 4500; easing: linear"
+      ></a-cone>
 
-      <!-- Sphere -->
-      <a-sphere 
-        position="1 0.5 0" 
-        radius="0.3" 
-        color="blue">
-      </a-sphere>
-
-      <!-- Cylinder -->
-      <a-cylinder 
-        position="-1 0.5 0" 
-        radius="0.3" 
-        height="1" 
-        color="green">
-      </a-cylinder>
-
-      <!-- Your Name -->
-      <a-text 
-        value="Faisal Fahad Alhimiyre" 
-       position="0 1.5 0"
-      rotation="-90 0 0"
-      align="center"
-      color="yellow"
-      width="4">
-     </a-text>
      
+      <a-torus
+        position="0 -0.02 0.85"
+        radius="0.25"
+        radius-tubular="0.05"
+        rotation="90 0 0"
+        color="#a855f7"
+        animation="property: rotation; to: 90 360 0; loop: true; dur: 3500; easing: linear"
+      ></a-torus>
 
+      
+      <a-plane
+        position="0 1.25 0"
+        width="2.2"
+        height="0.45"
+        color="#111827"
+        opacity="0.9"
+      ></a-plane>
+
+      <a-text
+        value="Faisal Alhimiyre"
+        position="0 1.25 0.02"
+        align="center"
+        color="#f8fafc"
+        width="4.2"
+      ></a-text>
     </a-marker>
 
-    <!-- Camera -->
     <a-entity camera></a-entity>
-
   </a-scene>
 </body>
 </html>
