@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CPIS360 Marker AR</title>
+  <title>CPIS360 WebAR</title>
 
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
@@ -16,68 +16,39 @@
   </style>
 </head>
 <body>
-  <a-scene
-    embedded
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true;"
-    arjs="sourceType: webcam; debugUIEnabled: false;"
-  >
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <a-marker preset="hiro">
 
-   
-    <a-marker preset="hiro">
+      <a-box
+        position="0 0.5 0"
+        color="#e76f51"
+        depth="0.5"
+        height="0.5"
+        width="0.5"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
+      </a-box>
 
- 
-  <a-cylinder
-    position="0 0.05 0"
-    radius="0.9"
-    height="0.08"
-    color="#1e293b">
-  </a-cylinder>
+      <a-sphere
+        position="0.8 0.5 0"
+        radius="0.25"
+        color="#3a86ff">
+      </a-sphere>
 
-  
-  <a-box
-    position="0 0.35 0"
-    depth="0.45"
-    height="0.45"
-    width="0.45"
-    color="#f97316"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear">
-  </a-box>
+      <a-cylinder
+        position="-0.8 0.5 0"
+        radius="0.2"
+        height="0.6"
+        color="#2a9d8f">
+      </a-cylinder>
 
-  
-  <a-sphere
-    position="0.75 0.35 0"
-    radius="0.22"
-    color="#22d3ee">
-  </a-sphere>
+     <a-text
+       value="Faisal Alhimiye"
+       position="0 0.2 0.5"
+       align="center"
+       color="#ffff00"
+       width="5">
+     </a-text>
 
-  
-  <a-cone
-    position="-0.75 0.35 0"
-    radius-bottom="0.18"
-    radius-top="0.05"
-    height="0.55"
-    color="#22c55e">
-  </a-cone>
-
-  <a-plane
-    position="0 -0.15 0.6"
-    width="1.4"
-    height="0.28"
-    color="#000000">
-  </a-plane>
-
-  
-  <a-text
-    value="Faisal Alhimiye"
-    position="0 -0.15 0.62"
-    align="center"
-    color="#ffff00"
-    width="3.5">
-  </a-text>
-
-</a-marker>
     </a-marker>
 
     <a-entity camera></a-entity>
